@@ -5,6 +5,7 @@ const searchSongs = () => {   //OR const searchSongs = async() => {
    fetch(url)  //OR const res = await fetch(url);
    .then(res => res.json())   //OR const data = await res.json();
    .then(data => displaySongs(data.data))   //OR displaySongs(data.data);
+   .catch = (error => displayError(error));
 }
 
 const displaySongs = songs => {
@@ -39,4 +40,9 @@ const getLyrics = (artist, title) => {   //OR const getLyrics = async(artist, ti
 const displayLyrics = lyrics => {
    const lyricsDiv = document.getElementById(("song-lyrics"));
    lyricsDiv.innerText = lyrics;
+}
+
+const displayError = error => {
+   const errorTag = document.getElementById("error-msg");
+   errorTag.innerText = error;
 }
